@@ -232,3 +232,16 @@ networks:
 ```
 
 4. After configuration you can check postgresql databases using `psql`
+
+
+## What is service discovery
+1. Service discovery is a way for microservices to automatically find and connect to each other without needing to know exact addresses.
+2. Since Docker containers can start, stop, and move around, their IP addresses might change. Instead of manually updating these addresses, service discovery helps containers find each other dynamically.
+3. Service discovery is the process by which services in a network automatically locate and communicate with each other without requiring hardcoded addresses or configurations. It ensures that services can dynamically register, find, and connect with other services as needed. 
+
+## How to create sorvice discovery using docker compose
+1. When all services are in the same Docker network, Docker automatically provides DNS resolution, and the DNS name for each service matches its service name as defined in docker-compose.yml. This is why other services can communicate using http://service-name:port instead of needing to know container IDs or IPs.
+2. In Docker Compose, services are automatically registered in service discovery when they share the same network.
+3. Each service name defined in docker-compose.yml becomes a DNS hostname.
+4. Docker assigns each container an internal IP address within the network.
+5. Services communicate using service names instead of IPs.
